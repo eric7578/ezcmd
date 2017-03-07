@@ -1,19 +1,24 @@
 {
-  "name": "subcmd",
-  "version": "1.0.0",
+  "name": "ezcmd",
+  "version": "0.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "ava",
     "test:watch": "nodemon --exec ava"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "ericyan <eric7578@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "minimist": "^1.2.0"
   },
   "devDependencies": {
     "ava": "^0.18.2",
     "nodemon": "^1.11.0"
-  }
+  },
+  "repository": "git+https://github.com/eric7578/ezcmd.git",
+  "bugs": {
+    "url": "https://github.com/eric7578/ezcmd/issues"
+  },
+  "homepage": "https://github.com/eric7578/ezcmd#readme"
 }
