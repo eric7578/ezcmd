@@ -1,10 +1,4 @@
-function padding(str, width) {
-  str = str.slice(0, width)
-  while(str.length < width) {
-    str = str + ' '
-  }
-  return str
-}
+const printf = require('printf')
 
 exports.printHelp = function (desc, options) {
   const optDescs = Object
@@ -25,7 +19,6 @@ exports.printHelp = function (desc, options) {
   const maxLen = optDescs.reduce((cur, next) => Math.max(cur, next.args.length), 0)
   return optDescs.reduce((out, next) => {
     const { args, describe } = next
-    const descLine = `  ${padding(args, maxLen)}  ${describe}\n`
-    return out + descLine
+    return out + printf(`%${maxLen + 2}s  %s\n`, args, describe)
   }, `${desc}\n`)
 }

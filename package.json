@@ -10,7 +10,8 @@
   "author": "ericyan <eric7578@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "minimist": "^1.2.0"
+    "minimist": "^1.2.0",
+    "printf": "^0.2.5"
   },
   "devDependencies": {
     "ava": "^0.18.2",
