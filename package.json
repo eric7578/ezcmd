@@ -1,0 +1,19 @@
+{
+  "name": "subcmd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava",
+    "test:watch": "nodemon --exec ava"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "minimist": "^1.2.0"
+  },
+  "devDependencies": {
+    "ava": "^0.18.2",
+    "nodemon": "^1.11.0"
+  }
+}
