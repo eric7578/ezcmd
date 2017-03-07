@@ -14,11 +14,12 @@ test('printting help with options', t => {
       }
     }
   )
+  const expect = [
+    'command description',
+    '  --mail, -m  Mail',
+    '  --password  Password',
+    ''
+  ]
 
-  t.is(
-    out,
-    'command description\n' +
-    '  --mail, -m  Mail\n' + 
-    '  --password  Password\n'
-  )
+  t.deepEqual(out.split('\n'), expect)
 })
