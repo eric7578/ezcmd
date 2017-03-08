@@ -19,7 +19,7 @@ module.exports = async function (target) {
 
   const command = require(target)
   if (opts.help || subCmd === 'help') {
-    process.std.out(printHelp(command.describe || command.desc, command.options))
+    process.stdout.write(printHelp(command.describe || command.desc, command.options))
   } else {
     return await command.handler(opts)
   }
