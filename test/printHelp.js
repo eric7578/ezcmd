@@ -23,3 +23,13 @@ test('printting help with options', t => {
 
   t.deepEqual(out.split('\n'), expect)
 })
+
+test('printting help without options', t => {
+  const out = printHelp('command description')
+  const expect = [
+    'command description',
+    ''
+  ]
+
+  t.deepEqual(out.split('\n'), expect)
+})
