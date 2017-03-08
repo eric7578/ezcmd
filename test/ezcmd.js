@@ -37,7 +37,14 @@ test.serial('execute cmd1 with options', async t => {
   }))
 })
 
-test('printting command help', async t => {
+test.serial('printting command help without options', async t => {
+  process.argv[2] = 'without-options'
+  process.argv[3] = '--help'
+
+  t.notThrows(ezcmd(cmddir))
+})
+
+test.serial('printting command help', async t => {
   const write = sinon.spy(process.stdout, 'write')
   process.argv[2] = 'cmd1'
   process.argv[3] = '--help'

@@ -1,6 +1,6 @@
 const printf = require('printf')
 
-exports.printHelp = function (desc, options) {
+exports.printHelp = function (desc, options = {}) {
   const optDescs = Object
     .keys(options)
     .map(opt => {
