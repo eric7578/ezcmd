@@ -6,7 +6,6 @@ const { printHelp } = require('./utils/cli')
 
 module.exports = async function (target) {
   const args = parseArgs(process.argv.slice(2))
-  console.log(process.argv.slice(2))
   const subCmd = args._[0]
   delete args._
   const opts = args
@@ -18,10 +17,10 @@ module.exports = async function (target) {
     throw new Error(`${target} is not applicable as a command`)
   }
 
-  const module = require(target)
+  const command = require(target)
   if (opts.help || subCmd === 'help') {
-    process.std.out(printHelp(module.describe || module.desc, modle.options))
+    process.std.out(printHelp(command.describe || command.desc, command.options))
   } else {
-    await module.handler(opts)
+    return await command.handler(opts)
   }
 }

@@ -1,5 +1,3 @@
-const sinon = require('sinon')
-
 exports.describe = 'Describe for cmd1'
 
 exports.options = {
@@ -10,4 +8,6 @@ exports.options = {
   }
 }
 
-exports.handler = sinon.spy()
+exports.handler = async function () {
+
+}

@@ -2,13 +2,33 @@ const test = require('ava')
 const path = require('path')
 const sinon = require('sinon')
 
-const cmd1 = require('../example/cmds/cmd1')
 const ezcmd = require('../src/index')
+const cmd1 = require('../example/cmds/cmd1')
 
-test('execute cmd1', t => {
+const cmddir = path.resolve(__dirname, '../example/cmds')
+const handler = sinon.spy(cmd1, 'handler')
+
+test.afterEach.always(t => {
+  handler.reset()
+})
+
+test.serial('execute cmd1', async t => {
   process.argv[2] = 'cmd1'
 
-  ezcmd(path.resolve(__dirname, '../example/cmds'))
+  await ezcmd(cmddir)
 
-  t.true(cmd1.handler.called)
+  t.true(handler.calledOnce)
+})
+
+test.serial('execute cmd1 with options', async t => {
+  process.argv[2] = 'cmd1'
+  process.argv[3] = '--option1'
+  process.argv[4] = 'value1'
+
+  await ezcmd(cmddir)
+
+  t.true(handler.calledOnce)
+  t.true(handler.calledWithExactly({
+    option1: 'value1'
+  }))
 })
